@@ -1,0 +1,17 @@
+caption: Vote
+created: 20210215163644178
+list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
+modified: 20210215164726644
+tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
+title: $:/plugins/kookma/vote/ui/ControlPanel/Settings
+type: text/vnd.tiddlywiki
+
+These settings let you customise the behaviour of Utility plugin.
+
+---
+
+;Show Vote setting in more sidebar
+:<$checkbox tiddler="$:/plugins/kookma/vote/ui/ControlPanel/Settings" tag="$:/tags/MoreSideBar"> Show setting in more sidebar</$checkbox>
+
+;Options
+:<$checkbox tiddler="$:/plugins/kookma/vote/viewtemplate/voting" tag="$:/tags/ViewTemplate"> Show the voting buttons on tiddler view toolbar</$checkbox>

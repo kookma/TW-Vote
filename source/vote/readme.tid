@@ -1,11 +1,11 @@
 created: 20210215150432241
-modified: 20210215150505362
+modified: 20210215170949045
 tags: 
 title: $:/plugins/kookma/vote/readme
 type: text/vnd.tiddlywiki
 
 ; Vote
-voting and ranking tiddlers
+The vote plugin lets you to rate tiddlers. Both voting and ranking of tiddlers can be done.
 
 ;Code and demo
 For learning plugin features, syntax, tutorial and examples see the plugin demo and code pages

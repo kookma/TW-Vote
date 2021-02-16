@@ -1,6 +1,6 @@
 created: 20210214160252823
 list-before: $:/core/ui/ViewTemplate/title
-modified: 20210215151117203
+modified: 20210215164933283
 tags: $:/tags/ViewTemplate
 title: $:/plugins/kookma/vote/viewtemplate/voting
 type: text/vnd.tiddlywiki
@@ -14,7 +14,7 @@ type: text/vnd.tiddlywiki
 <div class="vote-container">
 <div class="vote-flex">
 <$button class="tc-btn-invisible discussion-vote" actions=<<upvote>> >
-{{$:/plugins/kookma/vote/image/svg-upnvote}}
+{{$:/plugins/kookma/vote/image/svg-upvote}}
 </$button>
 <div>
 <$vars vote={{{ [<votingsTiddler>getindex<currentTiddler>else[0]] }}}>
