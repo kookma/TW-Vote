@@ -1,0 +1,13 @@
+created: 20210224171009495
+modified: 20210224213749259
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/vote/styles/dynamic
+type: text/vnd.tiddlywiki
+
+.vote-tbl-page-footer select{
+  background-color: <<colour table-header-background>>;
+  color:<<colour foreground>>;
+}
+.vote-tbl-page-footer{
+background-color: <<colour table-header-background>>;
+}

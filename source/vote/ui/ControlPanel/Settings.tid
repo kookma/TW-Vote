@@ -1,11 +1,11 @@
 caption: Vote
 created: 20210215163644178
-list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
-modified: 20210215164726644
+modified: 20210224220030013
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/vote/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki
 
+\import [tag[$:/tags/Macro/Vote]]
 These settings let you customise the behaviour of Utility plugin.
 
 ---
@@ -15,3 +15,13 @@ These settings let you customise the behaviour of Utility plugin.
 
 ;Options
 :<$checkbox tiddler="$:/plugins/kookma/vote/viewtemplate/voting" tag="$:/tags/ViewTemplate"> Show the voting buttons on tiddler view toolbar</$checkbox>
+
+
+;Selection filter
+: Filters to reveal vote pill &nbsp; <$edit-text tiddler=<<voteFilterTiddler>> field="text" tag=input defualt="[all[current]]" placeholder="enter a filter e.g. [tag[myTag]] " class="kk-ut-txt"/>
+
+;Clean
+:<<clean-votings-dataTiddler>>
+
+;Voting summary
+:[[Open summary table |$:/plugins/kookma/vote/ui/summary]]

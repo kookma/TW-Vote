@@ -1,0 +1,49 @@
+created: 20210219210131049
+modified: 20210224215452584
+tags: 
+title: $:/plugins/kookma/vote/ui/summary
+type: text/vnd.tiddlywiki
+
+\import [tag[$:/tags/Macro/Vote]]
+\define edit-button()
+<$button class="tc-btn-invisible">{{$:/core/images/edit-button}}
+<$action-listops $tiddler=<<voteEditSummaryTable>> $field="text" $subfilter="+[toggle[yes]]" />
+</$button>
+\end
+
+<table class="vote-summary-table">
+<caption><<edit-button>>&nbsp; Voting summary</caption>
+<$list filter="[<voteEditSummaryTable>get[text]match[yes]]" variable=ignore>
+<tr><td colspan=3>
+<<clean-votings-dataTiddler>>
+</td>
+</tr>
+</$list>
+<$vars sortBy={{{ [<sortStateTiddler>get[text]] }}}  
+       sortNeg={{{ [<sortStateTiddler>get[sort-neg]] }}} >
+<$vars stateTid=<<qualify xx$/state/$stateTid$>> >
+<$vars total-entries={{{ [subfilter<myfilter>count[]] }}}
+			 page-number={{{[<stateTid>get[text]] ~[[1]]}}} 
+			 entries-per-page={{{ [<pageStateTiddler>get[text]] ~[[25]] }}}  >
+<$vars low={{{[<page-number>subtract[1]multiply<entries-per-page>]}}}  
+       high={{{[<page-number>multiply<entries-per-page>]}}} >
+<tr><!-- create the header row -->
+<th style="text-align:left"><<sort-by-title>></th>
+<th style="width:8ch"><<sort-by-vote>></th>
+<th style="width:6ch"><b>Del</b></th>
+</tr>
+<$list filter="[<sortBy>!match[Vote]]" variable="sort_by_title">
+<<show-records-by-title>>
+</$list>
+<$list filter="[<sortBy>match[Vote]]" variable="sort_by_vote">
+<<show-records-by-vote>>
+</$list>
+<tr class="vote-tbl-page-footer">
+<td colspan=3>
+<<prev-button>>
+Displaying <$text text={{{[<low>add[1]]}}}/> through <<high>> of <<total-entries>> Results | <<limit-entries>>
+<<next-button>>
+</td>
+</tr>
+</$vars></$vars></$vars></$vars>
+</table>

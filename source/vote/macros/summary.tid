@@ -1,0 +1,62 @@
+created: 20210219073827766
+modified: 20210224182904324
+tags: $:/tags/Macro/Vote
+title: $:/plugins/kookma/vote/macros/summary
+type: text/vnd.tiddlywiki
+
+\define btnLable(label)
+''$label$''
+<$list filter="[<sortBy>match[$label$]]" variable=null>
+<$list filter="[<sortNeg>match[!]]" variable=null emptyMessage="{{$:/core/images/down-arrow}}">
+{{$:/core/images/up-arrow}}
+</$list></$list>
+\end
+
+\define remove(idx)
+<$button class="tc-btn-invisible vote-delete-svg"> {{$:/core/images/close-button}}
+<$action-setfield $tiddler=<<votingsTiddler>> $index=<<__idx__>>/>
+</$button>
+\end
+
+\define show-records-by-vote()
+<$vars sortby="[split[_°_]nth[2]]">
+<$vars tfilter="[<votingsTiddler>keyvals[]] +[$(sortNeg)$sortsub:number<sortby>]">
+<$list filter="[subfilter<tfilter>first<high>] -[subfilter<tfilter>first<low>]" variable=item>
+<tr>
+<td><$link to={{{ [<item>split[_°_]nth[1]] }}}/></td>
+<td><$text text={{{ [<item>split[_°_]nth[2]] }}}/></td>
+<td><$macrocall $name="remove" idx={{{ [<item>split[_°_]nth[1]] }}} /></td>
+</tr>
+</$list>
+</$vars>
+</$vars>
+\end
+
+
+\define show-records-by-title()
+<$vars tfilter="[subfilter<myfilter>] +[$(sortNeg)$sort[]]">
+<$list filter="[subfilter<tfilter>first<high>] -[subfilter<tfilter>first<low>]">
+<tr>
+<td><$link/></td>
+<td><$text text={{{[<votingsTiddler>getindex<currentTiddler>]}}}/></td>
+<td><$macrocall $name="remove" idx=<<currentTiddler>> /></td>
+</tr>
+</$list>
+</$vars>
+\end
+
+\define sort-by-title()
+<$button class="tc-btn-invisible vote-sort-svg"><<btnLable Title>>
+<$action-setfield $tiddler=<<sortStateTiddler>> text="Title"/>
+<$action-listops  $tiddler=<<sortStateTiddler>> $field=sort-neg $subfilter="+[toggle[!]]"/>
+</$button>
+\end
+
+\define sort-by-vote()
+<$button class="tc-btn-invisible vote-sort-svg"><<btnLable Vote>>
+<$action-setfield $tiddler=<<sortStateTiddler>> text="Vote"/>
+<$action-listops  $tiddler=<<sortStateTiddler>> $field=sort-neg $subfilter="+[toggle[!]]"/>
+</$button>
+\end
+
+
