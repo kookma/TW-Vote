@@ -1,0 +1,48 @@
+created: 20210225091253613
+modified: 20210225094132000
+tags: $:/tags/Macro/Vote
+title: $:/plugins/kookma/vote/macros/delete-votings
+type: text/vnd.tiddlywiki
+
+\define deleteTempTiddler() xx$:/temp/delete/all
+
+\define confirm-delete()
+<!-- reveals deletion confirmation -->
+<$list filter="[subfilter<myfilter>limit[1]]" variable=ignore>
+<$reveal class="tbl-delete-confirm" type="match" stateTitle=<<deleteTempTiddler>> stateField=text text="yes" tag="tr">
+<th colspan=3 >
+<$list filter="[<deleteTempTiddler>get[confirm]match[yes]]" 
+  variable=ignore emptyMessage=<<ask-for-delete>> >
+  <<perform-delete>>
+</$list>
+</th>
+</$reveal>
+</$list>
+\end
+
+\define ask-for-delete()
+<$set name=ntids filter="[subfilter<myfilter>count[]]">
+   Delete all <<ntids>> records?
+    <$button class="tc-btn-invisible">
+     <$action-setfield $tiddler=<<deleteTempTiddler>> $field="confirm" $value="yes"/>
+      {{$:/core/images/delete-button}} yes
+    </$button> or 
+    <$button class="tc-btn-invisible">
+      <$action-deletetiddler $tiddler=<<deleteTempTiddler>>/>
+      {{$:/core/images/close-button}} no
+    </$button>
+</$set>				
+\end
+
+\define perform-delete()
+   Warning! this action cannot be undone!
+    <$button class="tc-btn-invisible">
+     <$action-deletetiddler $tiddler=<<deleteTempTiddler>> />
+        <$action-deletetiddler $tiddler=<<votingsTiddler>> />
+         {{$:/core/images/delete-button}}  delete
+    </$button> or 
+    <$button class="tc-btn-invisible">
+      <$action-deletetiddler $tiddler=<<deleteTempTiddler>> />
+            {{$:/core/images/close-button}} cancel 
+    </$button>
+\end

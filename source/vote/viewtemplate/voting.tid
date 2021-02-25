@@ -1,19 +1,21 @@
 created: 20210214160252823
 list-before: $:/core/ui/ViewTemplate/title
-modified: 20210224075350336
+modified: 20210225062408550
 tags: $:/tags/ViewTemplate
 title: $:/plugins/kookma/vote/viewtemplate/voting
 type: text/vnd.tiddlywiki
 
 \import [[$:/plugins/kookma/vote/macros/configs]]
+
 \define upvote() <$action-setfield $tiddler=<<votingsTiddler>> $index=<<currentTiddler>> $value={{{ [<votingsTiddler>getindex<currentTiddler>else[0]add[1]] }}}/>
+
 \define downvote() <$action-setfield $tiddler=<<votingsTiddler>> $index=<<currentTiddler>> $value={{{[<votingsTiddler>getindex<currentTiddler>else[0]subtract[1]]}}}/>
 
 <$set name="revealFilters" tiddler=<<voteFilterTiddler>> field=text emptyValue="[!is[system]]">
-<$list filter="[subfilter<revealFilters>match<currentTiddler>]">
+<$list filter="[all[current]subfilter<revealFilters>match<currentTiddler>]">
 <div class="vote-container">
 <div class="vote-flex">
-<$button class="tc-btn-invisible discussion-vote" actions=<<upvote>> >
+<$button class="tc-btn-invisible" actions=<<upvote>> >
 {{$:/plugins/kookma/vote/images/svg-upvote}}
 </$button>
 <div>
@@ -25,7 +27,7 @@ type: text/vnd.tiddlywiki
 </$list>
 </$vars>
 </div>
-<$button class="tc-btn-invisible discussion-vote" actions=<<downvote>> >
+<$button class="tc-btn-invisible" actions=<<downvote>> >
 {{$:/plugins/kookma/vote/images/svg-downvote}}
 </$button>
 </div>

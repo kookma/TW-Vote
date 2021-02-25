@@ -1,11 +1,12 @@
 created: 20210218034153267
-modified: 20210224213454025
+modified: 20210225084303393
 tags: $:/tags/Macro/Vote
 title: $:/plugins/kookma/vote/macros/remove-missing-tiddlers
 type: text/vnd.tiddlywiki
 
 \define clean-votings-dataTiddler()
-<$button class="tc-btn-invisible">{{$:/core/images/delete-button}} remove missing tiddlers
+<$list filter="[subfilter<myfilter>is[missing]count[]compare:integer:gt[0]]" variable=ignore emptyMessage="There is no vote for missing tiddlers">
+<$button class="tc-btn-invisible">{{$:/core/images/delete-button}} Remove votes for <$count filter="[subfilter<myfilter>is[missing]]"/> missing tiddler
 <$list filter="[[$:/vote/dataTiddler/votings]indexes[]]">
 <$list filter="[<currentTiddler>is[missing]]" variable=idx>
 <$action-setfield $tiddler="$:/vote/dataTiddler/votings" $index=<<idx>> />
@@ -13,3 +14,4 @@ type: text/vnd.tiddlywiki
 </$list>
 </$button>
 \end
+<$vars num={{{[subfilter<myfilter>] +[is[missing]] +[count[]] }}}>

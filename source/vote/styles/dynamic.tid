@@ -1,5 +1,5 @@
 created: 20210224171009495
-modified: 20210224213749259
+modified: 20210225112102972
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/vote/styles/dynamic
 type: text/vnd.tiddlywiki
@@ -8,6 +8,7 @@ type: text/vnd.tiddlywiki
   background-color: <<colour table-header-background>>;
   color:<<colour foreground>>;
 }
-.vote-tbl-page-footer{
+
+table.vote-summary-table tfoot .vote-tbl-page-footer > td{
 background-color: <<colour table-header-background>>;
 }

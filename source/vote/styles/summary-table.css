@@ -1,0 +1,69 @@
+/* Summary Table */
+.vote-summary-table{
+	 width:100%;
+}
+/* Table caption at top */
+.vote-summary-table caption {
+ caption-side:top;
+ margin-bottom:0.2rem;
+ text-align:left;	
+}
+
+.vote-tbl-page-footer td{
+	margin: 0 0 0 0;
+	padding: 4px 7px 4px 7px;
+}
+
+.vote-tbl-page-footer select{
+	padding:0;
+	margin:0;
+	border:none;	
+}
+
+.vote-tbl-page-footer {
+	text-align:center;
+}
+
+.vote-tbl-page-prev{
+	float:left;
+}
+
+.vote-tbl-page-next{
+	float:right;
+}
+
+.vote-tbl-page-footer button svg {height:0.7em;}
+.vote-tbl-page-footer button {outline: none;}
+.vote-tbl-page-footer button:disabled {display:none;}
+
+
+/*button and svg */
+button.vote-sort-svg,
+button.vote-delete-svg {
+	outline: none;}
+
+button.vote-sort-svg > svg,
+button.vote-delete-svg >svg {
+	text-shadow: none;
+	height:10px;
+	padding:0 0 2px 0;
+}
+
+
+/* DELETE CONFIRMATION */
+table.vote-summary-table thead .tbl-delete-confirm > th {
+  color: white;
+  background-color:#ff0033;
+  padding: 8px;
+  margin: 0px;
+  text-align:center;
+    font-weight:normal;
+}
+
+table.vote-summary-table thead .tbl-delete-confirm > th > button {
+  color: white;
+  fill: white;
+}
+
+
+

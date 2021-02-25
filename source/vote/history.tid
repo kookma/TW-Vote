@@ -1,10 +1,11 @@
 created: 20210215150432240
-modified: 20210216030824043
+modified: 20210225112615089
 tags: 
 title: $:/plugins/kookma/vote/history
 type: text/vnd.tiddlywiki
 
 Full change log  https://kookma.github.io/TW-Vote/#ChangeLog
 
+* ''1.0.0'' -- 2021.02.25 -- first stable release
 * ''0.5.0'' -- 2021.02.16 -- performance improvement
 * ''0.1.0'' -- 2021.02.15 -- initial release

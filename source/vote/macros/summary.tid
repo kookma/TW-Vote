@@ -1,5 +1,5 @@
 created: 20210219073827766
-modified: 20210224182904324
+modified: 20210225110540825
 tags: $:/tags/Macro/Vote
 title: $:/plugins/kookma/vote/macros/summary
 type: text/vnd.tiddlywiki
@@ -25,7 +25,9 @@ type: text/vnd.tiddlywiki
 <tr>
 <td><$link to={{{ [<item>split[_°_]nth[1]] }}}/></td>
 <td><$text text={{{ [<item>split[_°_]nth[2]] }}}/></td>
+<$list filter="[<voteEditSummaryTable>get[text]match[yes]]" variable=ignore>
 <td><$macrocall $name="remove" idx={{{ [<item>split[_°_]nth[1]] }}} /></td>
+</$list>
 </tr>
 </$list>
 </$vars>
@@ -39,7 +41,9 @@ type: text/vnd.tiddlywiki
 <tr>
 <td><$link/></td>
 <td><$text text={{{[<votingsTiddler>getindex<currentTiddler>]}}}/></td>
+<$list filter="[<voteEditSummaryTable>get[text]match[yes]]" variable=ignore>
 <td><$macrocall $name="remove" idx=<<currentTiddler>> /></td>
+</$list>
 </tr>
 </$list>
 </$vars>
@@ -59,4 +63,9 @@ type: text/vnd.tiddlywiki
 </$button>
 \end
 
-
+\define edit-button()
+<$button class="tc-btn-invisible">{{$:/core/images/edit-button}}
+<$action-listops $tiddler=<<voteEditSummaryTable>> $field="text" $subfilter="+[toggle[yes]]" />
+<$action-listops $tiddler=<<voteEditSummaryTable>> $field="ncols" $subfilter="+[toggle[3],[2]]" />
+</$button>
+\end

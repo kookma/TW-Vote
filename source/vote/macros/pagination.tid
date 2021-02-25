@@ -1,5 +1,5 @@
 created: 20210224180410216
-modified: 20210224213916094
+modified: 20210225081828998
 tags: $:/tags/Macro/Vote
 title: $:/plugins/kookma/vote/macros/pagination
 type: text/vnd.tiddlywiki
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 <$list filter="[<page-number>compare:number:lt[2]then[yes]else[no]]" variable=state>
 <$button disabled=<<state>> class="vote-tbl-page-prev tc-btn-invisible">
 {{$:/core/images/chevron-left}}&nbsp;<strong>Prev</strong>
-<$action-listops $tiddler=<<stateTid>> $field=text $subfilter="+[subtract[1]] ~[[1]]"/>
+<$action-listops $tiddler=<<pageStateTiddler>> $field=text $subfilter="+[subtract[1]] ~[[1]]"/>
 </$button>
 </$list>
 \end
@@ -19,14 +19,14 @@ type: text/vnd.tiddlywiki
 <$list filter="[<high>compare:number:gteq<total-entries>then[yes]else[no]]" variable=state> 
 <$button disabled=<<state>> class="vote-tbl-page-next tc-btn-invisible">
 <strong>Next</strong>&nbsp;{{$:/core/images/chevron-right}} 
-<$action-listops $tiddler=<<stateTid>> $field=text $subfilter="+[add[1]] ~[[2]]"/>
+<$action-listops $tiddler=<<pageStateTiddler>> $field=text $subfilter="+[add[1]] ~[[2]]"/>
 </$button>
 </$list>
 \end
 
 \define limit-entries()
 <!-- set number of entries per page -->
-<$select tiddler=<<pageStateTiddler>> default=25 actions="""<$action-setfield $tiddler=<<stateTid>> text=1/>""">
+<$select tiddler=<<entryStateTiddler>> default=25 actions="""<$action-setfield $tiddler=<<pageStateTiddler>> text=1/>""">
 <$list filter='5 10 15 20 25 30 40 50' variable=num>
 <option value=<<num>>>Limit <$text text=<<num>>/></option>
 </$list>

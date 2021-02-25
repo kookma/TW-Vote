@@ -1,13 +1,15 @@
 created: 20210218071829609
-modified: 20210224215422649
+modified: 20210225101412165
 tags: $:/tags/Macro/Vote
 title: $:/plugins/kookma/vote/macros/configs
 type: text/vnd.tiddlywiki
 
-\define votingsTiddler()    $:/vote/dataTiddler/votings
-\define sortStateTiddler()  $:/state/vote/sort
-\define pageStateTiddler()  $:/state/vote/page
-\define voteFilterTiddler() $:/plugins/kookma/vote/config/display-filter
-\define voteEditSummaryTable() $:/state/vote/edit-summary-table
+\define votingsTiddler()        $:/vote/dataTiddler/votings
+\define sortStateTiddler()      $:/state/vote/sort
+\define entryStateTiddler()     $:/state/vote/entry-per-page
+\define pageStateTiddler()      $:/state/vote/page-number
+\define deleteTempTiddler()     $:/temp/vote/delete-votes
+\define voteFilterTiddler()     $:/plugins/kookma/vote/config/display-filter
+\define voteEditSummaryTable()  $:/state/vote/edit-summary-table
 
 \define myfilter() [<votingsTiddler>indexes[]]
