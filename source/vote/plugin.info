@@ -3,7 +3,7 @@
     "name": "Vote",
     "description": "voting and ranking of tiddlers",
     "author": "Mohammad Rahmani",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "core-version": ">= 5.1.23",
     "source": "https://github.com/kookma/TW-Vote",
     "list": "readme license history",
